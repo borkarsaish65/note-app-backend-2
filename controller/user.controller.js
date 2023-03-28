@@ -59,6 +59,13 @@ class UserController {
 
         console.log(result,'<--result');
 
+        if(result && result.length == 0)
+        {
+            return res.status(404).send({
+                message:'User does not exists.'
+            })
+        }
+
 
         if(result[0].password !== userLoginPassword)
         {
