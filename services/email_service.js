@@ -21,6 +21,8 @@ const sendEMail = async({
         text,
         html
     }
+
+    console.log(msg)
       sgMail
         .send(msg)
         .then((result) => {

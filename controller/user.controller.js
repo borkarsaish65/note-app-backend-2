@@ -170,7 +170,7 @@ class UserController {
              })
         }
 
-        const activationLink = `${process.env.FRONTEND_URL}/activate?token=${token}`;
+        const activationLink = process.env.FRONTEND_URL+`/activate-account?token=${token}`;
 
         sendEMail({
             to:email,
@@ -179,6 +179,9 @@ class UserController {
             text: `Please click on this link to activate your account: ${activationLink}`
         }).then((result)=>{
             console.log(result)
+            console.log(email,'email sent to')
+        }).catch((error)=>{
+            console.log(error)
         })
 
          res.status(200).send({
